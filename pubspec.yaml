@@ -10,7 +10,7 @@ environment:
 dependencies:
   build: ^1.0.0
   # Not imported in code, but used to constrain `build.yaml` requirements
-  build_config: ^0.3.0
+  build_config: ^0.4.1
   yaml: ^2.1.15
 
 dev_dependencies:
