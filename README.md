@@ -1,9 +1,17 @@
-Simple internationalization package for Dart and Flutter.
+Simple internationalization (i18n) package for Dart and Flutter.
+
+[![Build Status](https://travis-ci.org/fnx-io/i69n.svg?branch=master)](https://travis-ci.org/fnx-io/i69n)
+[![pub package](https://img.shields.io/badge/pub.dev-i69n-brightgreen)](https://pub.dev/packages/i69n)
+[![open source](https://img.shields.io/badge/Github-i69n-brightgreen)](https://github.com/fnx-io/i69n)
+
+Supports:
+- AngularDart
+- Flutter hot reload
+- deferred loading of translations
+
+
 
 # Overview
-
-Write your messages into YAML files, and let this package generate
-convenient Dart classes from those files.
 
 Turn this **YAML** file:
 
@@ -72,7 +80,6 @@ Write your messages into a YAML file:
       create: Create invoice
       delete: Delete invoice
   
-  
 Write your translations into other YAML files:
 
     exampleMessages_cs.i69n.yaml (_cs = Czech translation)
@@ -132,7 +139,7 @@ Now see the generated classes:
         String count(int cnt) => "You have eaten $cnt ${_apples(cnt)}.";
     }         
     
-See how you can **reuse** the pluralization of `_apples(int cnt)`? (nice!)
+See how you can **reuse** the pluralization of `_apples(int cnt)`? 💯!!!
 
 There are three functions you can use in your message:
 
@@ -143,7 +150,7 @@ There are three functions you can use in your message:
     String _ordinal(int count, {String zero, String one, String two, String few, String many, String other})
 
 `_plural` and `_cardinal` do the same. I just felt that `_plural`
- is a little bit less scary name :-)
+ is a little bit less scary name and in most cases that's the one you need.
 
 We need only two forms of the word "apple" in English. "Apple" (one) and "apples" (many).
 But in Czech, we need three:
@@ -182,6 +189,20 @@ again, **up to you**. I would consider ScopedModel for Flutter and registering
 messages instance into dependency injection in AngularDart.
 
 But in this case a singleton would be acceptable also.
+
+## Dynamic access using String keys
+
+It's still useful to access your messages using the String keys in some cases. For example when the key
+of the message is composed dynamically at runtime, maybe like this:
+
+    var vehicleTypeMessageKey = "VehicleType.${data['type']'}";
+ 
+You can access your messages like this:
+
+    print("static:  "+m.generic.ok);
+    print("dynamic: "+m.generic['ok']);
+    print("or even: "+m['generic.ok']);
+     
 
 ## How to use with Flutter
 
@@ -241,10 +262,8 @@ If you implement support for your language, please let me know,
  
 # TODO
 
-* More detailed docs.
-* Use it in some of our projects for real.
 * Current limitation: default language must be english
-* TODO: support custom imports 
+* TODO: support custom imports
 
 # Example
 
