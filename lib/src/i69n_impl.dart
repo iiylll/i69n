@@ -128,12 +128,12 @@ void renderTodoItem(TodoItem todo, StringBuffer output) {
     } else {
       if (k.contains('(')) {
         // function
-        output.writeln("\tString ${k} => '${v}';");
+        output.writeln('\tString ${k} => "${v}";');
       } else {
         if (k.contains('.')) {
           throw Exception('Your message key cannot contain a dot, see $k');
         }
-        output.writeln("\tString get ${k} => '${v}';");
+        output.writeln('\tString get ${k} => "${v}";');
       }
     }
   });

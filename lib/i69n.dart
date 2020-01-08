@@ -1,5 +1,6 @@
 import 'src/cs.dart' as cs;
 import 'src/en.dart' as en;
+import 'src/ru.dart' as ru;
 
 ///
 /// Language specific function, which is provided with a number and should return one of possible categories.
@@ -65,6 +66,7 @@ String ordinal(int count, String languageCode,
 Map<String, CategoryResolver> _resolverRegistry = {
   'en': en.quantityResolver,
   'cs': cs.quantityResolver,
+  'ru': ru.quantityResolver
 };
 
 String _resolvePlural(int count, String languageCode, QuantityType type,
