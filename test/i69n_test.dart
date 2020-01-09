@@ -56,6 +56,9 @@ void main() {
       expect(plural(2, 'cs', one: 'rok', two: 'roky', few: 'let', other: 'let'),
           equals('roky'));
       expect(
+          plural(12, 'cs', one: 'rok', two: 'roky', few: 'let', other: 'let'),
+          equals('let'));
+      expect(
           plural(42, 'cs', one: 'rok', two: 'roky', few: 'let', other: 'let'),
           equals('roky'));
       expect(plural(3, 'cs', one: 'rok', two: 'roky', few: 'let', other: 'let'),
@@ -67,14 +70,14 @@ void main() {
           equals('let'));
     });
 
-    test('cs', () {
+    test('ru', () {
       expect(plural(1, 'ru', one: 'год', two: 'года', few: 'лет', other: 'лет'),
           equals('год'));
       expect(plural(2, 'ru', one: 'год', two: 'года', few: 'лет', other: 'лет'),
           equals('года'));
       expect(
-          plural(42, 'ru', one: 'год', two: 'года', few: 'лет', other: 'лет'),
-          equals('года'));
+          plural(12, 'ru', one: 'год', two: 'года', few: 'лет', other: 'лет'),
+          equals('лет'));
       expect(plural(3, 'ru', one: 'год', two: 'года', few: 'лет', other: 'лет'),
           equals('года'));
       expect(plural(5, 'ru', one: 'год', two: 'года', few: 'лет', other: 'лет'),
